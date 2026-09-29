@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="description" content="Deriv Digit Analyzer mobile app for tracking digit patterns and forecasting likely outcomes." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icons/icon-192.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
+    <title>Deriv Digit Analyzer</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Deriv Digit Analyzer</p>
+          <h1>Market Pulse</h1>
+        </div>
+        <button id="installBtn" class="install-button hidden" type="button">Install App</button>
+      </header>
+
+      <main class="layout">
+        <section class="panel input-panel">
+          <div class="panel-header">
+            <h2>Digit Feed</h2>
+            <span class="badge">Live</span>
+          </div>
+
+          <label for="digitInput">Recent outcomes</label>
+          <textarea id="digitInput" rows="5" spellcheck="false">2, 4, 7, 7, 8, 9, 1, 2, 4, 5, 8, 9, 6, 3, 5, 9, 2, 7, 4, 1</textarea>
+
+          <div class="actions">
+            <button id="analyzeBtn" class="primary" type="button">Analyze</button>
+            <button id="randomizeBtn" class="secondary" type="button">Randomize</button>
+          </div>
+        </section>
+
+        <section class="panel metrics-panel">
+          <div class="panel-header">
+            <h2>Overview</h2>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <span class="label">Hot digit</span>
+              <strong id="hotDigit">-</strong>
+            </article>
+            <article class="stat-card">
+              <span class="label">Cold digit</span>
+              <strong id="coldDigit">-</strong>
+            </article>
+            <article class="stat-card">
+              <span class="label">Last digit</span>
+              <strong id="lastDigit">-</strong>
+            </article>
+            <article class="stat-card">
+              <span class="label">Trend</span>
+              <strong id="trendValue">-</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel prediction-panel">
+          <div class="panel-header">
+            <h2>Prediction</h2>
+          </div>
+          <div id="prediction" class="prediction-box">Ready to analyze</div>
+          <div class="legend">
+            <div><span class="legend-dot dot-hot"></span> Frequent</div>
+            <div><span class="legend-dot dot-cold"></span> Rare</div>
+            <div><span class="legend-dot dot-mid"></span> Balanced</div>
+          </div>
+        </section>
+
+        <section class="panel pattern-panel">
+          <div class="panel-header">
+            <h2>Pattern Window</h2>
+          </div>
+          <div id="patternList" class="pattern-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
